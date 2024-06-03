@@ -439,19 +439,21 @@ app.get("/team-result", async (req, res) => {
       let multipleTeams = [];
       let teamName;
       let maxPoints = 0;
-      resp.map((team) => {
+
+      resp.forEach((team) => {
         if (team.points > maxPoints) {
           maxPoints = team.points;
           teamName = team.team;
+          multipleTeams = [team.team]; // Reset multipleTeams to contain only the new maxPoints team
         } else if (team.points === maxPoints) {
-          multipleTeams.push(teamName, team.team);
+          multipleTeams.push(team.team);
         }
       });
 
-      if (!multipleTeams) {
+      if (multipleTeams.length === 1) {
         return `${teamName} is the winner`;
       } else {
-        return `${multipleTeams} are the winners`;
+        return `${multipleTeams.join(", ")} are the winners`;
       }
     }
     let result = findWinner();

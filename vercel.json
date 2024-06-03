@@ -17,6 +17,30 @@
     {
       "src": "/(.+)",
       "dest": "build/$1"
+    },
+    {
+      "src": "/add-team",
+      "dest": "index.js"
+    },
+    {
+      "src": "/add-team/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/process-result",
+      "dest": "index.js"
+    },
+    {
+      "src": "/process-result/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/team-result",
+      "dest": "index.js"
+    },
+    {
+      "src": "/team-result/(.*)",
+      "dest": "index.js"
     }
   ]
 }
